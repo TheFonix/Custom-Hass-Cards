@@ -1,0 +1,60 @@
+type: custom:vertical-stack-in-card
+cards:
+  - type: custom:button-card
+    color_type: icon
+    show_state: false
+    extra_styles: |
+      @keyframes bloombad {
+        50% {box-shadow: 0 0 30px rgb(55,100,100);}
+        }
+    color: rgb(195,0,20)
+    tap_action:
+      action: navigate
+      navigation_path: /lovelace-reptiles/iguana
+    entity: sensor.io_iguana_health
+    name: Iguana
+    state:
+      - value: Healthy | OK
+        color: rgb(155,200,0)
+      - value: Heat Boost Enabled | OK
+        color: rgb(255,200,0)
+      - value: Night Protection | OK
+        color: rgb(85,130,130)
+        styles:
+          card:
+            - animation: bloombad 2s infinite
+      - value: Routine Off | Warning
+        color: rgb(255,60,0)
+  - type: custom:bignumber-card
+    name: Iguana
+    show_name: true
+    scale: 15px
+    entity: sensor.io_iguana_health
+  - type: horizontal-stack
+    cards:
+      - type: custom:bignumber-card
+        entity: sensor.iguana_master_temp
+        scale: 15px
+        from: right
+        min: -999990
+        max: 43
+        severity:
+          - value: 10
+            style: var(--label-badge-red)
+          - value: 32
+            style: var(--label-badge-yellow)
+          - value: 40
+            style: var(--label-badge-green)
+      - type: custom:bignumber-card
+        entity: sensor.iguana_master_humidity
+        scale: 15px
+        from: right
+        min: -999990
+        max: 90
+        severity:
+          - value: 60
+            style: '#e65529'
+          - value: 65
+            style: var(--label-badge-yellow)
+          - value: 90
+            style: var(--label-badge-green)

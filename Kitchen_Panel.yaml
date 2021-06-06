@@ -1,0 +1,86 @@
+type: vertical-stack
+cards:
+  - type: entities
+    title: Tablet Status
+    entities:
+      - entity: sensor.leons_ipad_battery_level
+        name: Battery Level
+      - entity: sensor.leons_ipad_ssid
+        name: WiFi SSID
+      - entity: sensor.leons_ipad_battery_state
+        name: Main Power
+  - type: vertical-stack
+    cards:
+      - type: horizontal-stack
+        cards:
+          - type: button
+            tap_action:
+              action: toggle
+            entity: switch.kitchen_hood_light
+            icon_height: 47px
+            name: Hood PWR
+            show_state: false
+            show_icon: true
+            show_name: true
+            icon: mdi:stove
+          - type: button
+            tap_action:
+              action: toggle
+            entity: light.flux_kitchen
+            icon_height: 49px
+            icon: mdi:led-strip-variant
+            name: LED Strip
+            show_state: false
+            show_icon: true
+            show_name: true
+          - type: button
+            tap_action:
+              action: toggle
+            entity: light.color_temperature_light_2
+            icon_height: 47px
+            icon: mdi:wall-sconce-flat
+            name: Table Light
+            show_state: false
+            show_icon: true
+            show_name: true
+          - type: button
+            tap_action:
+              action: toggle
+            entity: light.color_temperature_light_1
+            icon_height: 47px
+            icon: mdi:wall-sconce-flat
+            name: Sink Light
+            show_state: false
+            show_icon: true
+  - type: entities
+    entities:
+      - entity: timer.fryer_runner
+        name: Fryer Time Left
+  - type: horizontal-stack
+    cards:
+      - type: custom:button-card
+        entity: switch.kitchen_tv
+        name: Something Went Wrong
+        show_last_changed: true
+        state:
+          - value: 'off'
+            icon: mdi:television-off
+            name: Kitchen TV
+            color: rgb(195,0,20)
+          - operator: default
+            icon: mdi:television
+            name: TV ON
+            color: rgb(120,290,0)
+      - type: custom:button-card
+        entity: input_boolean.notify_salad_stored
+        name: Something Went Wrong
+        show_last_changed: true
+        state:
+          - value: 'off'
+            icon: mdi:close-thick
+            name: We Dont Have Salad
+            color: rgb(195,0,20)
+          - operator: default
+            icon: mdi:grass
+            name: We Have Salad
+            color: rgb(120,290,0)

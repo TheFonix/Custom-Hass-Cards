@@ -1,0 +1,148 @@
+type: custom:vertical-stack-in-card
+cards:
+  - type: custom:button-card
+    color_type: label-card
+    color: red
+    icon: mdi:chef-hat
+    tap_action:
+      action: none
+    entity: input_boolean.kitchen_fryer_is_cooking
+    name: Air Fryer Idle
+    state:
+      - value: 'on'
+        color: green
+        icon: mdi:chef-hat
+        name: Air Fryer Running
+      - value: 'off'
+        color: rgb(70,70,70)
+        icon: mdi:chef-hat
+        name: Air Fryer Idle
+  - type: horizontal-stack
+    cards:
+      - type: custom:button-card
+        entity: binary_sensor.kitchen_fryer
+        icon: mdi:camera-timer
+        color_type: card
+        color: rgb(45, 45, 45)
+        name: System Error
+        styles:
+          card:
+            - height: 35px
+        state:
+          - value: 'on'
+            color: green
+            icon: 'null'
+            name: Connected
+          - value: 'off'
+            color: orange
+            icon: 'null'
+            name: Reconnecting..
+            styles:
+              card:
+                - animation: blink 1s ease infinite
+      - type: custom:button-card
+        entity: timer.fryer_runner
+        icon: mdi:power-cycle
+        color_type: card
+        show_name: true
+        show_state: false
+        show_icon: false
+        color: rgb(45, 45, 45)
+        styles:
+          card:
+            - height: 35px
+        state:
+          - value: idle
+            icon: mdi:power-cycle
+            name: Not Running
+          - value: active
+            icon: mdi:power-cycle
+            name: 181.0 °C
+  - type: horizontal-stack
+    cards:
+      - type: custom:button-card
+        entity: switch.kitchen_fryer_5_min
+        icon: mdi:camera-timer
+        color_type: card
+        color: rgb(45, 45, 45)
+        name: 5
+        layout: vertical
+        styles:
+          card:
+            - height: 60px
+        state:
+          - value: 'on'
+            color: green
+            icon: mdi:chef-hat
+            name: OK
+            styles:
+              card:
+                - animation: blink 1s ease infinite
+      - type: custom:button-card
+        entity: switch.kitchen_fryer_10_min
+        icon: mdi:camera-timer
+        color_type: card
+        color: rgb(45, 45, 45)
+        name: 10
+        styles:
+          card:
+            - height: 60px
+        state:
+          - value: 'on'
+            color: green
+            icon: mdi:chef-hat
+            name: OK
+            styles:
+              card:
+                - animation: blink 1s ease infinite
+      - type: custom:button-card
+        entity: switch.kitchen_fryer_15_min
+        icon: mdi:camera-timer
+        color_type: card
+        color: rgb(45, 45, 45)
+        name: 15
+        styles:
+          card:
+            - height: 60px
+        state:
+          - value: 'on'
+            color: green
+            icon: mdi:chef-hat
+            name: OK
+            styles:
+              card:
+                - animation: blink 1s ease infinite
+      - type: custom:button-card
+        entity: switch.kitchen_fryer_17_min
+        icon: mdi:camera-timer
+        color_type: card
+        color: rgb(45, 45, 45)
+        name: 17
+        styles:
+          card:
+            - height: 60px
+        state:
+          - value: 'on'
+            color: green
+            icon: mdi:chef-hat
+            name: OK
+            styles:
+              card:
+                - animation: blink 1s ease infinite
+      - type: custom:button-card
+        entity: switch.kitchen_fryer_20_min
+        icon: mdi:camera-timer
+        color_type: card
+        color: rgb(45, 45, 45)
+        name: 20
+        styles:
+          card:
+            - height: 60px
+        state:
+          - value: 'on'
+            color: green
+            icon: mdi:chef-hat
+            name: OK
+            styles:
+              card:
+                - animation: blink 1s ease infinite

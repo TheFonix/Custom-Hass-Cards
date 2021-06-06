@@ -1,0 +1,148 @@
+type: custom:stack-in-card
+mode: vertical
+cards:
+  - type: vertical-stack
+    cards:
+      - type: horizontal-stack
+        cards:
+          - type: custom:button-card
+            entity: switch.living_room_tv
+            icon: mdi:camera-timer
+            color_type: icon
+            color: rgb(45, 45, 45)
+            name: Living Room TV
+            styles:
+              card:
+                - height: 90px
+            state:
+              - value: 'off'
+                color: red
+                icon: mdi:television-off
+              - value: 'on'
+                color: green
+                icon: mdi:television
+          - type: custom:button-card
+            entity: switch.panel_touchscreen
+            color_type: icon
+            name: Panel Screen
+            styles:
+              card:
+                - height: 90px
+            state:
+              - value: 'off'
+                color: red
+                icon: mdi:television-off
+              - value: 'on'
+                color: green
+                icon: mdi:television-guide
+      - type: horizontal-stack
+        cards:
+          - type: custom:button-card
+            entity: switch.living_room_sub
+            color_type: icon
+            color: rgb(45, 45, 45)
+            name: Sub-Woofer
+            styles:
+              card:
+                - height: 90px
+            tap_action:
+              action: toggle
+            state:
+              - value: 'off'
+                color: red
+              - value: 'on'
+                color: green
+          - type: custom:button-card
+            entity: media_player.yamaha_receiver
+            color_type: icon
+            icon: mdi:surround-sound-7-1
+            color: green
+            name: Sound System
+            styles:
+              card:
+                - height: 90px
+            tap_action:
+              action: toggle
+            state:
+              - value: 'off'
+                color: red
+                icon: mdi:file-excel-box
+              - value: 'on'
+                color: green
+                icon: mdi:surround-sound-2-0
+          - type: custom:button-card
+            entity: switch.living_room_watching_tv
+            color_type: icon
+            color: rgb(45, 45, 45)
+            styles:
+              card:
+                - height: 90px
+            tap_action:
+              action: toggle
+            state:
+              - value: 'off'
+                color: red
+                icon: mdi:eye-off-outline
+                name: Not Watching
+              - value: 'on'
+                color: green
+                icon: mdi:eye-outline
+                name: Watching TV
+      - entities:
+          - entity: light.living_room_lights
+            name: Master Control
+          - entity: media_player.yamaha_receiver
+          - entity: switch.fish_tank_lights
+        type: entities
+      - type: horizontal-stack
+        cards:
+          - type: custom:button-card
+            entity: light.living_room_lights
+            icon: mdi:invert-colors
+            color_type: icon
+            tap_action:
+              action: more-info
+            color: rgb(45, 45, 45)
+            name: Colour Picker
+            styles:
+              card:
+                - height: 130px
+            state:
+              - value: 'off'
+                color: red
+          - type: custom:rgb-light-card
+            entity: light.living_room_lights
+            colors:
+              - type: call-service
+                service: scene.turn_on
+                service_data:
+                  entity_id: scene.living_room_force_white
+                icon_color: '#fff'
+              - rgb_color:
+                  - 255
+                  - 125
+                  - 0
+                icon_color: rgb(255,125,0)
+                brightness_pct: 80
+                transition: 2
+              - rgb_color:
+                  - 20
+                  - 255
+                  - 5
+                icon_color: rgb(20,255,5)
+                brightness_pct: 100
+                transition: 2
+              - rgb_color:
+                  - 140
+                  - 5
+                  - 255
+                icon_color: rgb(140,5,255)
+                brightness_pct: 40
+                transition: 2
+              - rgb_color:
+                  - 255
+                  - 50
+                  - 50
+                icon_color: rgb(255,30,30)
+                brightness_pct: 20
+                transition: 2
